@@ -1,0 +1,49 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.title {
+  margin: 0;
+  font-size: 1.25rem;
+}
+
+.controls {
+  display: inline-flex;
+  padding: 0.25rem;
+  background: var(--color-surface-muted);
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+}
+
+.button {
+  border: 0;
+  background: transparent;
+  color: var(--color-text-muted);
+  border-radius: 999px;
+  padding: 0.55rem 0.8rem;
+  cursor: pointer;
+}
+
+.active {
+  background: var(--color-accent);
+  color: white;
+}
+
+@media (max-width: 520px) {
+  .header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .controls {
+    width: 100%;
+  }
+
+  .button {
+    flex: 1;
+  }
+}

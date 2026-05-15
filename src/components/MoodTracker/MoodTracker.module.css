@@ -1,0 +1,51 @@
+.title {
+  margin: 0 0 0.35rem;
+  font-size: 1.25rem;
+}
+
+.description {
+  margin: 0 0 1rem;
+  color: var(--color-text-muted);
+}
+
+.options {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+.option {
+  display: grid;
+  place-items: center;
+  gap: 0.35rem;
+  min-height: 5.5rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface-muted);
+  color: var(--color-text);
+  cursor: pointer;
+  transition:
+    transform 160ms ease,
+    border-color 160ms ease,
+    background 160ms ease;
+}
+
+.option:hover {
+  transform: translateY(-2px);
+  border-color: var(--color-accent);
+  background: var(--color-accent-soft);
+}
+
+.icon {
+  font-size: 1.7rem;
+}
+
+.label {
+  font-weight: 700;
+}
+
+@media (max-width: 520px) {
+  .options {
+    grid-template-columns: 1fr;
+  }
+}

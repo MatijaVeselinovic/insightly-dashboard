@@ -36,6 +36,11 @@
   background: var(--color-accent-soft);
 }
 
+.activeMoodOption {
+  border-color: var(--color-accent);
+  background: var(--color-accent-soft);
+}
+
 .icon {
   font-size: 1.7rem;
 }

@@ -1,4 +1,4 @@
-import { createContext, ReactNode, useCallback, useContext, useMemo, useReducer } from 'react';
+import { createContext, ReactNode, useCallback, useContext, useEffect, useMemo, useReducer } from 'react';
 import { mockMoodData } from '../data/mockMoodData';
 import { getTodayDate } from '../utils/dates';
 import { getStoredMoodEntries, storeMoodEntries } from '../utils/storage';
@@ -28,7 +28,6 @@ function moodReducer(state: MoodState, action: MoodAction): MoodState {
       const moodEntries = [...withoutToday, action.payload].sort((a, b) =>
         a.date.localeCompare(b.date),
       );
-      storeMoodEntries(moodEntries);
 
       return {
         ...state,
@@ -54,6 +53,10 @@ const initialState: MoodState = {
 
 export function MoodProvider({ children }: { children: ReactNode }) {
   const [state, dispatch] = useReducer(moodReducer, initialState);
+
+  useEffect(() => {
+    storeMoodEntries(state.moodEntries);
+  }, [state.moodEntries]);
 
   const addMoodEntry = useCallback((mood: MoodLevel) => {
     dispatch({

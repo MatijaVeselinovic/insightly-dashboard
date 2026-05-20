@@ -1,6 +1,6 @@
 import { createContext, ReactNode, useCallback, useContext, useMemo, useReducer } from 'react';
 import { mockMoodData } from '../data/mockMoodData';
-import { getTodayIsoDate } from '../utils/dates';
+import { getTodayDate } from '../utils/dates';
 import { getStoredMoodEntries, storeMoodEntries } from '../utils/storage';
 import { getMoodScore } from '../utils/moodScore';
 import type { ChartRange, MoodEntry, MoodLevel } from '../types';
@@ -59,7 +59,7 @@ export function MoodProvider({ children }: { children: ReactNode }) {
     dispatch({
       type: 'ADD_MOOD_ENTRY',
       payload: {
-        date: getTodayIsoDate(),
+        date: getTodayDate(),
         mood,
         score: getMoodScore(mood),
       },

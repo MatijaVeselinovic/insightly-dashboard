@@ -1,9 +1,5 @@
 import type { MoodEntry } from '../types';
 
-export function getTodayIsoDate(): string {
-  return new Date().toISOString().slice(0, 10);
-}
-
 export function formatShortDate(date: string): string {
   return new Intl.DateTimeFormat('en', {
     month: 'short',
